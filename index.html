@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown to HTML Converter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/2.0.3/marked.min.js"></script>
+    <style>
+        body {
+            padding: 20px;
+        }
+        #output {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Markdown to HTML Converter</h1>
+        <div class="form-group">
+            <label for="markdownInput">Enter Markdown:</label>
+            <textarea class="form-control" id="markdownInput" rows="10" placeholder="Type your markdown here..."></textarea>
+        </div>
+        <button class="btn btn-primary" id="convertButton">Convert to HTML</button>
+        <h2 class="mt-4">Output HTML:</h2>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        document.getElementById('convertButton').addEventListener('click', function() {
+            const markdownText = document.getElementById('markdownInput').value;
+            const htmlOutput = marked(markdownText);
+            document.getElementById('output').innerHTML = htmlOutput;
+        });
+    </script>
+</body>
+</html>
